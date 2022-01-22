@@ -17,6 +17,9 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+gem 'devise'
+gem 'active_storage_validations'
+gem 'image_processing', '~> 1.2'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

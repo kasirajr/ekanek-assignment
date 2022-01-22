@@ -1,0 +1,14 @@
+<h1>Documents</h1>
+
+<% @documents.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |document| %>
+      <div class="col-md-4">
+        <%= render 'attachment_representation', attachment: document.attachment %>
+        <h4><%= link_to document.name, document %></h4>
+        <%= document.description %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<%= link_to 'New Document', new_document_path %>

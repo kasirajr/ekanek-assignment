@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-9">
+    <% attachment = @document.attachment %>
+    <%= render 'attachment_representation', attachment: attachment %>
+    <%= link_to "Download", rails_blob_path(attachment, disposition: "attachment") %>
+  </div>
+
+  <div class="col-md-3">
+    <p><b>Name: </b><%= @document.name %></p>
+    <p><b>Description: </b><%= @document.description %></p>
+    <p>
+      <%= link_to 'Destroy', @document, data: { confirm: 'Are you sure?' }, method: :delete %> |
+      <%= link_to 'Back', documents_path %>
+    </p>
+  </div>
+</div>
