@@ -1,5 +1,5 @@
 <h1>Documents</h1>
-
+<%= link_to 'New Document', new_document_path %>
 <% @documents.in_groups_of(3) do |group| %>
   <div class="row">
     <% group.compact.each do |document| %>
@@ -11,7 +11,6 @@
     <% end %>
   </div>
 <% end %>
-<%= link_to 'New Document', new_document_path %>
 <nav>
   <%= paginate @documents, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "pagination justify-content-center"%>
 </nav>

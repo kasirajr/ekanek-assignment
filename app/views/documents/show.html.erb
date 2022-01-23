@@ -1,17 +1,17 @@
-<div class="row">
-  <div class="col-md-9">
+<div class="col">
+  <div class="row-md-6">
     <% attachment = @document.attachment %>
     <%= render 'attachment_representation', attachment: attachment %>
-    <%= link_to "Download", rails_blob_path(attachment, disposition: "attachment") %>
-    <% if @document.is_public? %>
-        <% options = { controller: :"/shortener/shortened_urls", action: :show, id: @document.shortened_urls.first.unique_key, only_path: false } %>
-        Public URL: <%= url_for(options) %>
-    <% end %>
+    | <%= link_to "Download", rails_blob_path(attachment, disposition: "attachment") %>
   </div>
 
-  <div class="col-md-3">
+  <div class="row-md-6">
     <p><b>Name: </b><%= @document.name %></p>
     <p><b>Description: </b><%= @document.description %></p>
+    <% if @document.is_public? %>
+        <% options = { controller: :"/shortener/shortened_urls", action: :show, id: @document.shortened_urls.first.unique_key, only_path: false } %>
+        <p><b>Public URL:</b> <%= url_for(options) %></p>
+    <% end %>
     <p>
       <%= link_to 'Destroy', @document, data: { confirm: 'Are you sure?' }, method: :delete %> |
       <%unless @document.is_public?%>
