@@ -12,6 +12,7 @@ sudo apt-get install libmysqlclient-dev <br/>
 instal mysql - https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04 <br/>
 configure username/password in config/database.yml <br/><br/>
 
+bundle install <br/>
 rails db:create <br/>
 rails db:migrate <br/> <br/>
 
