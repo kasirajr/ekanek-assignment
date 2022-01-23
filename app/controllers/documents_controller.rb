@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :destroy]
     def index
-        @documents = current_user.documents
+        @documents = current_user.documents.order(id: :desc).page(params[:page]).per(15)
     end
 
   def show
