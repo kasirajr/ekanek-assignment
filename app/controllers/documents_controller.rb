@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before_action :set_document, only: [:show, :destroy]
+  before_action :set_document, only: [:show, :destroy, :share]
   def index
       @documents = current_user.documents.includes(attachment_attachment: :blob).order(id: :desc).page(params[:page]).per(15)
   end
@@ -31,6 +31,22 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to documents_url, notice: "Document was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def share
+    @document.is_public = params[:is_public]
+    if @document.is_public
+      Shortener::ShortenedUrl.generate(rails_blob_path(@document.attachment, disposition: "attachment"), owner: @document)
+    else
+      @document.shortened_urls.destroy_all
+    end
+    respond_to do |format|
+      if @document.update(is_public: params[:is_public])
+        format.html { redirect_to document_url(@document), notice: "Document is now publicly shared." }
+      else
+        format.html { render :show, status: :unprocessable_entity }
+      end
     end
   end
 

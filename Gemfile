@@ -22,6 +22,8 @@ gem 'active_storage_validations'
 gem 'image_processing', '~> 1.2'
 gem 'bootstrap4-kaminari-views'
 gem 'kaminari'
+gem 'shortener'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
