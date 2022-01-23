@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, required: true %>
   </div>
-  <p> document size should be less than 1GB</p>
   <div class="field">
+    <p> document size should be less than 1GB</p>
     <%= form.label :attachment %>
     <%= form.file_field :attachment %>
   </div>

@@ -1,8 +1,8 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :destroy]
-    def index
-        @documents = current_user.documents.order(id: :desc).page(params[:page]).per(15)
-    end
+  def index
+      @documents = current_user.documents.includes(attachment_attachment: :blob).order(id: :desc).page(params[:page]).per(15)
+  end
 
   def show
   end
@@ -36,7 +36,7 @@ class DocumentsController < ApplicationController
 
   private
     def set_document
-      @document = Document.find(params[:id])
+      @document = current_user.documents.find(params[:id])
     end
 
     def document_params
