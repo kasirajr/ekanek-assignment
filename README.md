@@ -3,22 +3,36 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+# Prerequisite and installation
+install rvm - https://rvm.io/rvm/install
+rvm user gemsets
+rvm install 2.7.4
 
-* Ruby version
+sudo apt-get install libmysqlclient-dev
+instal mysql - https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
+configure username/password in config/database.yml
 
-* System dependencies
+rails db:create
+rails db:migrate
 
-* Configuration
+install nvm - https://github.com/nvm-sh/nvm
+nvm install 14.18.1
+sudo apt install npm
+npm install --global yarn
+rails assets:precompile
 
-* Database creation
 
-* Database initialization
+# For showing preview images
+install imagemagick
+install ffmpeg
+install muPDF
 
-* How to run the test suite
+# start the server
+rails s
 
-* Services (job queues, cache servers, search engines, etc.)
+visit localhost:3000
 
-* Deployment instructions
+# Note
 
-* ...
+I haven't enabled or configured email services.
+All uploaded files will be stored in the local file system only.
